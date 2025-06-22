@@ -3,7 +3,7 @@
   "name": "sudo-flix",
   "version": "4.7.0",
   "private": true,
-  "homepage": "https://github.com/sussy-code/smov",
+  "homepage": "https://github.com/hyperkiko/smov",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
