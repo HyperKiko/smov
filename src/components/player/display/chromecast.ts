@@ -108,6 +108,7 @@ export function makeChromecastDisplayInterface(
 
     let type = "video/mp4";
     if (source.type === "hls") type = "application/x-mpegurl";
+    if (source.type === "mkv") type = "video/x-matroska";
 
     const metaData = new chrome.cast.media.GenericMediaMetadata();
     metaData.title = meta.title;

@@ -11,7 +11,7 @@ import { ProgressMediaItem, useProgressStore } from "@/stores/progress";
 
 export interface Source {
   url: string;
-  type: "hls" | "mp4";
+  type: "hls" | "mp4" | "mkv";
 }
 
 function getProgress(

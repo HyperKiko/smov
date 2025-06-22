@@ -47,7 +47,8 @@ class ThumnbnailWorker {
     el.setAttribute("muted", "true");
     const canvas = document.createElement("canvas");
     this.hls = new Hls();
-    if (source.type === "mp4") {
+    if (["mp4", "mkv"].includes(source.type)) {
+      if (source.type === "mkv") el.setAttribute("type", "video/webm");
       el.src = processCdnLink(source.url);
       el.crossOrigin = "anonymous";
     } else if (source.type === "hls") {

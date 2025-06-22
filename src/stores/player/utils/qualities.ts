@@ -4,10 +4,10 @@ import { QualityStore } from "@/stores/quality";
 
 export type SourceQuality = Qualities;
 
-export type StreamType = "hls" | "mp4";
+export type StreamType = "hls" | "mp4" | "mkv";
 
 export type SourceFileStream = {
-  type: "mp4";
+  type: "mp4" | "mkv";
   url: string;
 };
 

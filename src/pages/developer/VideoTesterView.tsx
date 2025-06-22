@@ -20,11 +20,13 @@ const testMeta: PlayerMeta = {
 const testStreams: Record<StreamType, string> = {
   hls: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
   mp4: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+  mkv: "https://usa7-nas31-1.shegu.net/vip/p1/org_movie/1/1/0/13970/movie.13970.2019.original.2285891.20241215033002.mkv?KEY1=TZBKjBtR1L276pZz5ji8Tw&KEY2=1750650238&KEY7=23&KEY8=m13907460",
 };
 
 const streamTypes: Record<StreamType, string> = {
   hls: "HLS",
   mp4: "MP4",
+  mkv: "MKV",
 };
 
 export default function VideoTesterView() {
@@ -46,6 +48,16 @@ export default function VideoTesterView() {
           qualities: {
             unknown: {
               type: "mp4",
+              url,
+            },
+          },
+        };
+      } else if (type === "mkv") {
+        source = {
+          type: "file",
+          qualities: {
+            unknown: {
+              type: "mkv",
               url,
             },
           },
@@ -99,6 +111,9 @@ export default function VideoTesterView() {
                   </Button>
                   <Button onClick={() => start(testStreams.mp4, "mp4")}>
                     MP4 test
+                  </Button>
+                  <Button onClick={() => start(testStreams.mkv, "mkv")}>
+                    MKV test
                   </Button>
                 </div>
               </div>

@@ -240,6 +240,7 @@ export function makeVideoElementDisplayInterface(): DisplayInterface {
       return;
     }
 
+    if (src.type === "mkv") vid.setAttribute("type", "video/webm");
     vid.src = processCdnLink(src.url);
     vid.currentTime = startAt;
   }
@@ -313,6 +314,7 @@ export function makeVideoElementDisplayInterface(): DisplayInterface {
   function unloadSource() {
     if (videoElement) {
       videoElement.removeAttribute("src");
+      videoElement.removeAttribute("type");
       videoElement.load();
     }
     if (hls) {
