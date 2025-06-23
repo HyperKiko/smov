@@ -9,6 +9,7 @@ import {
   makeExtensionFetcher,
   makeLoadBalancedSimpleProxyFetcher,
 } from "@/backend/providers/fetchers";
+import { getProxyUrls } from "@/utils/proxyUrls";
 
 export function getProviders() {
   if (isExtensionActiveCached()) {
@@ -22,7 +23,9 @@ export function getProviders() {
 
   return makeProviders({
     fetcher: makeStandardFetcher(fetch),
-    proxiedFetcher: makeLoadBalancedSimpleProxyFetcher(),
+    proxiedFetcher: getProxyUrls().length
+      ? makeLoadBalancedSimpleProxyFetcher()
+      : makeStandardFetcher(fetch),
     target: targets.BROWSER,
   });
 }
