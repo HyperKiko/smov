@@ -79,7 +79,10 @@ export function ScrapingPart(props: ScrapingProps) {
         ),
       );
       props.onGetStream?.(output);
-    })().catch(() => setFailedStartScrape(true));
+    })().catch((e) => {
+      console.error(e);
+      return setFailedStartScrape(true);
+    });
   }, [startScraping, props, report, isMounted]);
 
   let currentProviderIndex = sourceOrder.findIndex(
